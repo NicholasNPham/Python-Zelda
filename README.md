@@ -7,10 +7,16 @@ Language: Python
 Python Modules: Pygame
 
 Learned Topics:
+
 Object Oriented Programming
+
 Organization and Details
+
 Importing PNG Files to Pygame
+
 Animation Iteration
+
 Directories and Files
+
 Continuations...
 
