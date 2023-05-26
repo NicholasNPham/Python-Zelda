@@ -22,5 +22,5 @@ Animation Iteration
 
 Directories and Files
 
-Continuations...
+Trigonometry Understanding Vectors and Calculations With Movement Mechanics
 
