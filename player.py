@@ -1,8 +1,9 @@
 import pygame
 from settings import *
 from support import import_folder
+from entity import Entity
 
-class Player(pygame.sprite.Sprite):
+class Player(Entity):
     def __init__(self, pos, groups, obstacle_sprites, create_attack, destroy_attack, create_magic):
         super().__init__(groups)
         self.image = pygame.image.load('../graphics/test/player.png').convert_alpha()
@@ -12,11 +13,8 @@ class Player(pygame.sprite.Sprite):
         # Graphics Setup
         self.import_player_assets()
         self.status = 'down'
-        self.frame_index = 0
-        self.animation_speed = 0.15
 
         # Movement
-        self.direction = pygame.math.Vector2() # Initalize (x,y)
         self.attacking = False
         self.attack_cooldown = 400
         self.attack_time = None
@@ -142,33 +140,6 @@ class Player(pygame.sprite.Sprite):
         else:
             if 'attack' in self.status:
                 self.status = self.status.replace('_attack', '')
-
-    def move(self, speed):
-        if self.direction.magnitude() != 0: # Check if vector has any length.
-            self.direction = self.direction.normalize() # If magnitude does have length, set to 1 constantly.
-
-        self.hitbox.x += self.direction.x * speed
-        self.collision('horizontal')
-        self.hitbox.y += self.direction.y * speed
-        self.collision('vertical')
-        self.rect.center = self.hitbox.center
-
-    def collision(self, direction):
-        if direction == 'horizontal': # Check Direction.
-            for sprite in self.obstacle_sprites: # all sprites in obstacle_sprites.
-                if sprite.hitbox.colliderect(self.hitbox): # For all sprites, check the rectangle of sprite with the player.
-                    if self.direction.x > 0: # Moving Right.
-                        self.hitbox.right = sprite.hitbox.left # Player moving right colliding with the left side of sprite.
-                    if self.direction.x < 0: # Moving Left.
-                        self.hitbox.left = sprite.hitbox.right # Player moving left colliding with the right side of sprite.
-
-        if direction == "vertical":
-            for sprite in self.obstacle_sprites: # all sprites in obstacle_sprites.
-                if sprite.hitbox.colliderect(self.hitbox): # For all sprites, check the rectangle of sprite with the player.
-                    if self.direction.y > 0: # Moving Down
-                        self.hitbox.bottom = sprite.hitbox.top # Player moving down colliding with the top side of sprite.
-                    if self.direction.y < 0: # Moving Up
-                        self.hitbox.top = sprite.hitbox.bottom # Player moving up colliding with the bottom side of sprite.
 
     def cooldowns(self):
         current_time = pygame.time.get_ticks()
