@@ -16,6 +16,8 @@ Object Oriented Programming
 
 Organization and Use of Parent and Child Classes
 
+------------------------------------------------------------------
+
 Sections Covered:
 
 Project Setup
