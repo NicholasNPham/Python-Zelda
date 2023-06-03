@@ -14,13 +14,34 @@ Learned Topics:
 
 Object Oriented Programming
 
-Organization and Details
+Organization and Use of Parent and Child Classes
 
-Importing PNG Files to Pygame
+Sections Covered:
 
-Animation Iteration
+Project Setup
 
-Directories and Files
+Creating the Player
 
-Trigonometry Understanding Vectors and Calculations With Movement Mechanics
+Creating The Camera
 
+Graphics
+
+Player Animation
+
+Weapons
+
+UserInterface
+
+Magic Setup
+
+Enemy Creation
+
+Player-Enemy Interaction
+
+Particles
+
+Spells
+
+Upgrade System and Menu
+
+Sounds
