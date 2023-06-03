@@ -32,7 +32,7 @@ Player Animation
 
 Weapons
 
-UserInterface
+User Interface
 
 Magic Setup
 
